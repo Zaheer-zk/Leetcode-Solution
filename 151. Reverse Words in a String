@@ -1,0 +1,32 @@
+class Solution {
+public:
+    string reverseWords(string s) 
+		{ 
+			int n = s.size();
+			stack<string>str;
+			int i=0;
+			string word="";
+			while(i<n)
+			{
+				while(s[i]!=' ' && i<n)
+				{
+				   word+=s[i]; // adding till space
+					i++; // every char
+				}
+				if(word.size()!=0)
+				{
+				str.push(word); // if we got a space
+				word="";
+				}
+				 i++;
+        }
+        string ans="";
+        while(!str.empty())
+        {
+            ans += str.top() + " "; // one by one string + space
+            str.pop();
+        }
+        ans.pop_back(); // last space
+        return ans;
+    }
+};
