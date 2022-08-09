@@ -1,0 +1,19 @@
+class Solution {
+public:
+    bool isIsomorphic(string s, string t) {
+        map<char, char> mapST;
+        map<char, char> mapTS;
+      
+      for(int i=0; i<s.size(); i++) {
+        char c1 = s[i], c2 = t[i];
+        mapST[c1] = c2;
+        mapTS[c2] = c1;
+      }
+      for(int i=0;i<s.size();i++) {
+           if(mapST[s[i]]!= t[i] or mapTS[t[i]]!= s[i])
+          return false;
+        
+      }
+        return true;
+    }
+};
