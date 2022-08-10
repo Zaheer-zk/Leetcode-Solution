@@ -1,0 +1,16 @@
+class Solution {
+public:
+    ListNode* reverseList(ListNode* head) {
+        // here we have to simply change the pointer 
+      ListNode *curr = head;
+      ListNode *prev = NULL;
+      
+      while(curr != NULL) {
+        ListNode *nextVal = curr -> next; // 10 -> 20 -> 30 -> 40
+        curr -> next = prev; // NULL = 10 20 -> 30 -> 40
+        prev = curr; // prev = 10
+        curr = nextVal; // curr = 20
+      }
+      return prev;
+    }
+};
