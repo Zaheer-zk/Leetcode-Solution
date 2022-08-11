@@ -1,0 +1,12 @@
+class Solution {
+public:
+    ListNode *detectCycle(ListNode *head) {
+        ListNode *currentNode = head;
+        map<ListNode*, int> mapOfVisNode;
+        while(currentNode != NULL and mapOfVisNode[currentNode] == 0) {
+          mapOfVisNode[currentNode]++; // hashing the index as visited
+          currentNode = currentNode -> next;
+        }
+        return currentNode;
+    }
+};
