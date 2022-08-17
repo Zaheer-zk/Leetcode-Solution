@@ -1,0 +1,18 @@
+class Solution {
+public:
+  int dp[35];
+  int rec(int i) {
+    if(i==0) 
+      return 0;
+    if(i==1)
+      return 1;
+    if(dp[i]!=-1) 
+      return dp[i];
+    return dp[i] =  rec(i-2) + rec(i-1);
+    
+  }
+    int fib(int n) {
+      memset(dp,-1,sizeof(dp));
+        return rec(n);
+    }
+};
