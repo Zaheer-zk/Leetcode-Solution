@@ -1,0 +1,23 @@
+```
+ int dp[46];
+    int rec(int i, int n) {
+      if(i>n)
+        return 0;
+      if(i==n) {
+        return 1;
+      }
+      if(dp[i] != -1) {
+        return dp[i];
+      }
+      
+      int choice1 = rec(i+1,n); // 1 stair
+      int choice2 = rec(i+2,n); // 2 stair
+      
+      return dp[i] = choice1+choice2; // memorization
+      
+    }
+    int climbStairs(int n) {
+        memset(dp,-1,sizeof(dp));
+        return rec(0,n);
+    }
+```
