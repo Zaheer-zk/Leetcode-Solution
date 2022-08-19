@@ -1,0 +1,19 @@
+class Solution {
+public:
+  int dp[1005];
+  int rec(int i, int n, vector<int>& cost) {
+    if(i>=n)
+      return 0;
+    if(dp[i]!=-1)
+      return dp[i];
+    
+    int choice1 = cost[i] + rec(i+1, n, cost);
+    int choice2 = cost[i] + rec(i+2, n, cost);
+    return dp[i] = min(choice1, choice2);
+  }
+    int minCostClimbingStairs(vector<int>& cost) {
+        memset(dp,-1,sizeof(dp));
+      int n = cost.size();
+      return min(rec(0,n,cost), rec(1,n,cost));
+    }
+};
