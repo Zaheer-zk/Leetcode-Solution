@@ -1,0 +1,20 @@
+Here we have to find the tribonacci so write a fun. for n-1 , n-2, n-3
+as follow and memorize it.
+```
+int rec(int n, int dp[]) {
+      if(n == 0)
+        return 0;
+      if(n == 1)
+        return 1;
+      if(n == 2)
+        return 1;
+      if(dp[n] != -1)
+        return dp[n];
+      return dp[n] = rec(n-1,dp) + rec(n-2,dp) + rec(n-3,dp);
+    }
+    int tribonacci(int n) {
+        int dp[40];
+        memset(dp,-1,sizeof(dp));
+        return rec(n,dp);
+    }
+```
