@@ -1,0 +1,22 @@
+**Best way to write REC **
+Here we will first get all the subset by rec call 
+1. call will include the index ele and also XOR that ele.
+2. call will not include the index ele.
+
+```
+class Solution {
+public:
+    int rec(int i, vector<int>& nums, int x) {
+      if(i == nums.size())
+        return x;
+      
+      int choice1 = rec(i+1, nums, x ^ nums[i]); // including
+      int choice2 = rec(i+1, nums,x); // exclude
+      
+      return choice1 + choice2;
+    }
+    int subsetXORSum(vector<int>& nums) {
+        return rec(0,nums,0);
+    }
+};
+```
