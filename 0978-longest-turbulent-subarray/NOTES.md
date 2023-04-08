@@ -1,0 +1,1 @@
+Here the think we have notice that to get previous we can check by r-1 with r it will give us the curr comparision and track the prev comparosion with variable.
